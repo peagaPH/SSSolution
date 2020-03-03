@@ -16,5 +16,8 @@ namespace DTO
         public bool VaiPilha { get; set; }
         public virtual CategoriaDTO Categoria { get; set; }
         public int CategoriaID { get; set; }
+        public virtual FornecedorDTO Fornecedor { get; set; }
+        public int FornecedorID { get; set; }
+
     }
 }

@@ -16,6 +16,8 @@ namespace DAO.Mappings
             this.Property(p => p.Descricao).HasMaxLength(150);
 
             this.HasRequired(c => c.Categoria).WithMany(c => c.Produtos).HasForeignKey(c => c.CategoriaID).WillCascadeOnDelete(false);
+
+            this.HasRequired(c => c.Fornecedor).WithMany(c => c.Produtos).HasForeignKey(c => c.FornecedorID).WillCascadeOnDelete(false);
         }
     }
 }

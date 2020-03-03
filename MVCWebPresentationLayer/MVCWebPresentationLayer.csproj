@@ -145,6 +145,7 @@
     <Compile Include="Models\Query\CategoriaQueryViewModel.cs" />
     <Compile Include="Models\Query\ClienteQueryViewModel.cs" />
     <Compile Include="Models\Insert\ProdutoViewModel.cs" />
+    <Compile Include="Models\Query\FornecedorQueryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

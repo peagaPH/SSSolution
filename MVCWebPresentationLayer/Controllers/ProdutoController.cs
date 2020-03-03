@@ -4,6 +4,7 @@ using Common;
 using DTO;
 using MVCWebPresentationLayer.Mock;
 using MVCWebPresentationLayer.Models;
+using MVCWebPresentationLayer.Models.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,31 @@ namespace MVCWebPresentationLayer.Controllers
 {
     public class ProdutoController : Controller
     {
+        FornecedorService fsvc = new FornecedorService();
+        CategoriaService csvc = new CategoriaService();
 
         public async Task<ActionResult> Cadastrar()
         {
+            List<FornecedorDTO> fornecedores = await fsvc.GetFornecedores();
+            List<CategoriaDTO> categorias = await csvc.GetCategorias();
+
+            var configuration = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<FornecedorDTO, FornecedorQueryViewModel>();
+                cfg.CreateMap<CategoriaDTO, CategoriaQueryViewModel>();
+            });
+
+            IMapper mapper = configuration.CreateMapper();
+            // new SERService().GetSERByID(4);
+            //Transforma o ClienteInsertViewModel em um ClienteDTO
+
+            //Este objeto "dados" é uma lista de objetos ViewModel
+            List<FornecedorQueryViewModel> dadosFornecedores = mapper.Map<List<FornecedorQueryViewModel>>(fornecedores);
+            List<CategoriaQueryViewModel> dadosCategorias = mapper.Map<List<CategoriaQueryViewModel>>(categorias);
+
+            ViewBag.Fornecedores = dadosFornecedores;
+            ViewBag.Categorias = dadosCategorias;
+
             return View();
         }
 

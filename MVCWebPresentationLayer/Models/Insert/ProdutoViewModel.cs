@@ -17,5 +17,10 @@ namespace MVCWebPresentationLayer.Models
         public string Cor { get; set; }
 
         public bool VaiPilha { get; set; }
+        
+        public int CategoriaID { get; set; }
+        public int FornecedorID{ get; set; }
+
+
     }
 }

@@ -15,6 +15,8 @@ namespace BLL.Impl
 {
     public class FornecedorService : BaseService, IFornecedorService
     {
+        FornecedorRepository repository = new FornecedorRepository();
+
         public async Task Create(FornecedorDTO fornecedor)
         {
             var resposta = fornecedor.CNPJ.IsValidCNPJ();
@@ -33,7 +35,6 @@ namespace BLL.Impl
 
             try
             {
-                FornecedorRepository repository = new FornecedorRepository();
                 await repository.Create(fornecedor);
             }
             catch (Exception ex)
@@ -48,6 +49,11 @@ namespace BLL.Impl
                 throw new Exception("Erro no banco de dados.");
             }
 
+        }
+
+        public async Task<List<FornecedorDTO>> GetFornecedores()
+        {
+            return await repository.GetFornecedores();
         }
     }
 }

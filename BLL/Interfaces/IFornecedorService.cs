@@ -10,5 +10,6 @@ namespace BLL.Interfaces
     public interface IFornecedorService
     {
         Task Create(FornecedorDTO fornecedor);
+        Task<List<FornecedorDTO>> GetFornecedores();
     }
 }

@@ -58,6 +58,40 @@
             </div>
         </div>
 
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Categoria</label>
+            <div class="col-md-10">
+                <select class="form-control" name="CategoriaID" id="CategoriaID">
+                    @foreach (var item in ViewBag.Categorias)
+                    {
+                        <option value="@item.ID">@item.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Fornecedor</label>
+            <div class="col-md-10">
+                <select class="form-control" name="FornecedorID" id="FornecedorID">
+                    @foreach (var item in ViewBag.Fornecedores)
+                    {
+                        <option value="@item.ID">@item.NomeFantasia</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
         <div class="form-group">
             <label class="control-label col-md-2">Necessita Pilha</label>
             <div class="col-md-10">
