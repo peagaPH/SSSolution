@@ -14,7 +14,7 @@ namespace DAO
 {
     public class SSContext : DbContext
     {
-        public SSContext():base(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hbsis\Documents\SSNeco.mdf;Integrated Security=True;Connect Timeout=30")
+        public SSContext():base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ESTACIONAMENTODB_ef62ac46ce0642bdb42d9f59ded55587;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
 
         }
@@ -23,6 +23,8 @@ namespace DAO
         public DbSet<ProdutoDTO> Produtos { get; set; }
         public DbSet<CategoriaDTO> Categorias{ get; set; }
         public DbSet<FornecedorDTO> Fornecedores { get; set; }
+        public DbSet<UsuarioDTO> Usuarios { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

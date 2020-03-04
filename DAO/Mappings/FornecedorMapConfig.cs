@@ -14,7 +14,7 @@ namespace DAO.Mappings
         public FornecedorMapConfig()
         {
             HttpClient client = new HttpClient();
-
+            this.ToTable("FORNECEDORES");
             this.Property(f => f.CNPJ).IsFixedLength().HasMaxLength(18);
             this.Property(f => f.NomeFantasia).HasMaxLength(100);
             this.HasIndex(f => f.CNPJ).IsUnique(true).HasName("UQ_FORNECEDOR_CNPJ");
