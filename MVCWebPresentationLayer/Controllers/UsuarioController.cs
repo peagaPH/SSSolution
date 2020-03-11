@@ -21,11 +21,13 @@ namespace MVCWebPresentationLayer.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Login()
+        public ActionResult Login()
         {
 
             return View();
         }
+
+        [HttpPost]
         public async Task<ActionResult> Login(string email, string senha)
         {
             try
@@ -77,5 +79,6 @@ namespace MVCWebPresentationLayer.Controllers
             //Se chegou aqui, temos erro
             return View();
         }
+        
     }
 }

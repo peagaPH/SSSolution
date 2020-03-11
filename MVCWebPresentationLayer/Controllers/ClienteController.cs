@@ -63,8 +63,18 @@ namespace MVCWebPresentationLayer.Controllers
         //meusite.com/Cliente/Index
         public async Task<ActionResult> Index()
         {
+
+            HttpCookie cookie = this.Request.Cookies["USERIDENTITY"];
+            if (cookie == null)
+            {
+                return RedirectToAction("Login", "Usuario");      
+            }
+
+
             try
             {
+
+
                 ClienteService svc = new ClienteService();
                 
                 //Este objeto "clientes" é uma Lista de objetos DTO
